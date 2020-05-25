@@ -23,6 +23,19 @@ namespace firstWPF
         public MainWindow()
         {
             InitializeComponent();
+            label1.ItemsSource = BLL.UserBase.allUsers;
+            label2.ItemsSource = BLL.Library.allBooks;
+        }
+
+        private void label1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Models.User user = (Models.User)label1.SelectedItem;
+            MessageBox.Show(user.AllInfo());
+        }
+
+        private void label2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
